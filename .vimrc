@@ -7,6 +7,7 @@ Plugin 'frazrepo/vim-rainbow'
 Plugin 'itchyny/lightline.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'tpope/vim-commentary'
+Plugin 'preservim/nerdtree'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
