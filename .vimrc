@@ -130,6 +130,7 @@ set noexpandtab
 set tabstop=4
 set shiftwidth=4
 colorscheme elflord 
+set clipboard=unnamedplus
 
 let g:rainbow_active = 1         "rainbow brackets plugin
 
