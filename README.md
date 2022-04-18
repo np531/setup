@@ -5,10 +5,10 @@ Currently only sets up my Vim keybindings (which is all I need :) ). In the futu
 # Installation
 1. Download the vim.sh script from this repo
 2. If you don't have the required packages (gvim, git) then run the script as follows:
-<code>
-  ./vim.sh new
-</code>
-4. Otherwise, `./vim.sh` will simply pull my vimrc from this repo and install the plugins
+
+``$ ./vim.sh new``
+
+3. Otherwise, ``./vim.sh`` will simply pull my vimrc from this repo and install the plugins
 
 # Todo
 *Implement cmd line argument to choose package manager (currently only supports pacman)
