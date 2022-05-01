@@ -4,7 +4,10 @@ Currently only sets up my Vim keybindings (which is all I need :) ). In the futu
 
 # Installation
 1. Download the vim.sh script from this repo
-2. If you don't have the required packages (gvim, git) then run the script as follows:
+
+``$ wget https://raw.githubusercontent.com/np531/setup/main/vim.sh``
+
+2. If you don't have the required packages (gvim, git, vundle) then run the script as follows:
 
 ``$ ./vim.sh new``
 
