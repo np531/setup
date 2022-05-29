@@ -6,9 +6,9 @@ then
 	then
 		echo "Installing vim..."
 		sudo pacman -S gvim git
-		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	fi
 fi
 	curl https://raw.githubusercontent.com/np531/setup/main/.vimrc > ~/.vimrc
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	echo "Downloading plugins..."
 	vim +PluginInstall +qall
