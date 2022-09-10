@@ -13,7 +13,7 @@ if [ "$1" != "-d" ] ; then
 		sudo pacman -S gvim git exa
 	else 
 		echo "Can't detect distro, skipping package installs..."
-		echo "Please manually install gvim and git from your distro's package manager"
+		echo "Please manually install gvim, git and exa from your distro's package manager"
 	fi
 fi
 
@@ -21,6 +21,7 @@ echo "=== Pulling dotfiles from repo ==="
 curl https://raw.githubusercontent.com/np531/setup/main/.vimrc > ~/.vimrc
 curl https://raw.githubusercontent.com/np531/setup/main/.bash_aliases > ~/.bash_aliases
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+echo ". ~/.bash_aliases" >> ~/.bashrc
 
 echo "=== Downloading plugins... ==="
 vim +PluginInstall +qall
