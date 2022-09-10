@@ -8,7 +8,7 @@ if [ "$1" != "-d" ] ; then
 	if [ "$distribution" == "Ubuntu" ] ; then
 		sudo apt -y update
 		sudo apt -y upgrade
-		sudo apt-get install gvim git exa -y
+		sudo apt-get install vim-gtk3 git exa -y
 	elif [ "$distribution" == "Arch" ] ; then
 		sudo pacman -S gvim git exa
 	else 
