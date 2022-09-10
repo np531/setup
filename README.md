@@ -3,15 +3,11 @@ This is a collection of files and scripts that I use to setup my environment on 
 Currently only sets up my Vim keybindings (which is all I need :) ). In the future I will expand it to download basic packages and scripts that may be useful.
 
 # Installation
-1. Download the vim.sh script from this repo
+1. Pull the setup script 
 
-``$ wget https://raw.githubusercontent.com/np531/setup/main/vim.sh``
+``$ wget https://raw.githubusercontent.com/np531/setup/main/setup.sh``
 
-2. If you don't have the required packages (gvim, git, vundle) then run the script as follows:
-
-``$ ./vim.sh new``
-
-3. Otherwise, ``./vim.sh`` will simply pull my vimrc from this repo and install the plugins
+2. Run ``./setup.sh`` to execute the setup script
 
 # Todo
-*Implement cmd line argument to choose package manager (currently only supports pacman)
+[ ] Check/add support for distros other than ubuntu and arch
