@@ -10,4 +10,4 @@ Currently only sets up my Vim keybindings (which is all I need :) ). In the futu
 2. Run ``./setup.sh`` to execute the setup script
 
 # Todo
-[ ] Check/add support for distros other than ubuntu and arch
+ - Check/add support for distros other than ubuntu and arch
