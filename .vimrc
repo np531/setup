@@ -1,20 +1,23 @@
-set nocompatible              " be iMproved, required
+se nocompatible              " be iMproved, required
 filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'frazrepo/vim-rainbow'
-Plugin 'itchyny/lightline.vim'
-Plugin 'dense-analysis/ale'
-Plugin 'tpope/vim-commentary'
-Plugin 'preservim/nerdtree'
-call vundle#end()            " required
-filetype plugin indent on    " required
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
+" Auto-install vim-plug if not already installed
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+call plug#begin()
+Plug 'VundleVim/Vundle.vim'
+Plug 'frazrepo/vim-rainbow'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-commentary'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ap/vim-css-color'
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+call plug#end()
+filetype plugin indent on    " required
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -119,13 +122,24 @@ if filereadable("/etc/vimrc.local")
   source /etc/vimrc.local
 endif
 
+" remaps
+nnoremap <silent> K :call ShowDocumentation()<CR>
+noremap <silent> t :term<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
 " n's settings:
 :set number
 :set mouse=a
 :set hidden
-:set backspace=indent,eol,start
+:set encoding=UTF-8
 runtime macros/matchit.vim
-:syntax on
 set autoindent
 set noexpandtab
 set tabstop=4
@@ -144,3 +158,17 @@ let g:lightline = {
 if !has('gui_running')
   set t_Co=256
 endif
+
+" Nerdtree Settings
+let g:airline_powerline_fonts = 1
+nnoremap q :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"

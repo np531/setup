@@ -1,9 +1,9 @@
 #!/bin/bash
-# -d to just pull dotfiles and clone vim config
+# -f to install linux reqs
 
 distribution=$(cat /etc/*-release | uniq -u | head -n 1 | grep -Eo "[^=]*$")
 
-if [ "$1" != "-d" ] ; then
+if [ "$1" != "-f" ] ; then
 	echo "=== Installing uequired packages, updating system... ==="
 	if [ "$distribution" == "Ubuntu" ] ; then
 		sudo apt -y update
@@ -20,9 +20,9 @@ fi
 echo "=== Pulling dotfiles from repo ==="
 curl https://raw.githubusercontent.com/np531/setup/main/.vimrc > ~/.vimrc
 curl https://raw.githubusercontent.com/np531/setup/main/.bash_aliases > ~/.bash_aliases
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo ". ~/.bash_aliases" >> ~/.bashrc
 
 echo "=== Downloading plugins... ==="
 vim +PluginInstall +qall
+vim +CocInstall coc-tsserver coc-json coc-html coc-css coc-pyright
 
