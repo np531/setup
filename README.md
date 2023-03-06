@@ -5,7 +5,9 @@ Currently only sets up my Vim keybindings (which is all I need :) ). In the futu
 # Installation
 1. Pull the setup script 
 
-``$ wget https://raw.githubusercontent.com/np531/setup/main/setup.sh``
+```
+wget https://raw.githubusercontent.com/np531/setup/main/setup.sh
+```
 
 2. Run ``./setup.sh`` to execute the setup script
  - The `-d` flag installs prereqs (supported by - Ubuntu, Arch)
