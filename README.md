@@ -10,7 +10,7 @@ wget https://raw.githubusercontent.com/np531/setup/main/setup.sh
 ```
 
 2. Run ``./setup.sh`` to execute the setup script
- - The `-d` flag installs prereqs (supported by - Ubuntu, Arch)
+ - The `-f` flag installs prereqs (supported by - Ubuntu, Arch)
  - Provide no flags just to pull the bashrc and vimrc
 
 # Todo
