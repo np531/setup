@@ -24,5 +24,5 @@ echo ". ~/.bash_aliases" >> ~/.bashrc
 
 echo "=== Downloading plugins... ==="
 vim +PluginInstall +qall
-vim +CocInstall coc-tsserver coc-json coc-html coc-css coc-pyright
+vim +CocInstall coc-tsserver coc-json coc-html coc-css coc-pyright +qall
 
