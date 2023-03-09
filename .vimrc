@@ -17,6 +17,7 @@ Plug 'ap/vim-css-color'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
 filetype plugin indent on    " required
 
@@ -146,7 +147,7 @@ set noexpandtab
 set tabstop=4
 set shiftwidth=4
 colorscheme elflord 
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 let g:rainbow_active = 1         "rainbow brackets plugin
 
@@ -162,14 +163,17 @@ endif
 
 " Nerdtree Settings
 let g:airline_powerline_fonts = 1
-nnoremap q :NERDTreeFocus<CR>
+" nnoremap q :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+map q :call NERDTreeToggleAndRefresh()<CR>
+function NERDTreeToggleAndRefresh()
+  :NERDTreeToggle
+  if g:NERDTree.IsOpen()
+    :NERDTreeRefreshRoot
+  endif
+endfunction
