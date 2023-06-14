@@ -13,5 +13,8 @@ wget https://raw.githubusercontent.com/np531/setup/main/setup.sh
  - The `-f` flag installs prereqs (supported by - Ubuntu, Arch)
  - Provide no flags just to pull the bashrc and vimrc
 
-# Todo
- - Check/add support for distros other than ubuntu and arch
+# Requirements
+ - BASH (update the setup script if you use a different shell)
+ - git (duh)
+ - exa (ls replacement)
+ - vim 
