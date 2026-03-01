@@ -2,7 +2,7 @@
 
 # Designed for APT, update this line if using different package manager
 sudo apt -y update && sudo apt -y upgrade
-sudo apt install vim-gtk3 git eza curl -y
+sudo apt install vim-gtk3 git eza npm curl -y
 
 
 echo "=== Pulling dotfiles from repo ==="
