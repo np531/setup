@@ -1,8 +1,16 @@
 #!/bin/bash
 
 # Designed for APT, update this line if using different package manager
-sudo apt -y update && sudo apt -y upgrade
-sudo apt install vim-gtk3 git eza npm curl -y
+if command -v apt >/dev/null 2>&1; then
+  sudo apt -y update && sudo apt -y upgrade
+  sudo apt install vim-gtk3 git eza npm curl -y
+elif command -v dnf >/dev/null 2>&1; then
+    sudo dnf update -y
+    sudo dnf install vim-gtk3 git eza npm curl -y
+else
+    echo "Not running apt or dnf, get out of here Arch scum :)"
+fi
+
 
 
 echo "=== Pulling dotfiles from repo ==="
