@@ -11,6 +11,6 @@ curl https://raw.githubusercontent.com/np531/setup/main/.bash_aliases > ~/.bash_
 echo ". ~/.bash_aliases" >> ~/.bashrc
 
 echo "=== Downloading plugins... ==="
-vim +PluginInstall +qall
+vim +PlugInstall +qall
 vim +CocInstall coc-tsserver coc-json coc-html coc-css coc-pyright +qall
 
